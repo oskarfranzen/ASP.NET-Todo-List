@@ -1,0 +1,10 @@
+/Users/Oskar/Documents/Programmering/Web/asp.net api/bin/Debug/netcoreapp2.0/asp.net api.deps.json
+/Users/Oskar/Documents/Programmering/Web/asp.net api/bin/Debug/netcoreapp2.0/asp.net api.runtimeconfig.json
+/Users/Oskar/Documents/Programmering/Web/asp.net api/bin/Debug/netcoreapp2.0/asp.net api.runtimeconfig.dev.json
+/Users/Oskar/Documents/Programmering/Web/asp.net api/bin/Debug/netcoreapp2.0/asp.net api.dll
+/Users/Oskar/Documents/Programmering/Web/asp.net api/bin/Debug/netcoreapp2.0/asp.net api.pdb
+/Users/Oskar/Documents/Programmering/Web/asp.net api/obj/Debug/netcoreapp2.0/asp.net api.csproj.CoreCompileInputs.cache
+/Users/Oskar/Documents/Programmering/Web/asp.net api/obj/Debug/netcoreapp2.0/asp.net api.AssemblyInfoInputs.cache
+/Users/Oskar/Documents/Programmering/Web/asp.net api/obj/Debug/netcoreapp2.0/asp.net api.AssemblyInfo.cs
+/Users/Oskar/Documents/Programmering/Web/asp.net api/obj/Debug/netcoreapp2.0/asp.net api.dll
+/Users/Oskar/Documents/Programmering/Web/asp.net api/obj/Debug/netcoreapp2.0/asp.net api.pdb
