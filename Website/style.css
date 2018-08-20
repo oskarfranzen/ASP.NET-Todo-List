@@ -22,11 +22,17 @@ li {
     margin: 2px 0;
   }
 
+  .fade {
+    perspective: 500px;
+  }
   .fade li {
-    transition: all 0.4s ease-out;
+    transition: all 0.1s ease-out;
     opacity: 0;
+    transform: rotateX(-45deg);
   }
   .fade li.show {
+    transform: none;
+    height: 4em;
     opacity: 1;
   }
 
