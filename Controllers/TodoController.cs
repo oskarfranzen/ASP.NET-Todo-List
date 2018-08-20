@@ -13,8 +13,6 @@ namespace TodoApi.Controllers {
             _context = context;
 
             if (_context.TodoItems.Count() == 0) {
-                _context.TodoItems.Add(new TodoItem { Name = "Item22", Alert = new Alert { TimeOfAlert = DateTime.Now.AddMinutes(5), AlertColor = System.Drawing.Color.Red } });
-                _context.TodoItems.Add(new TodoItem { Name = "Item2", Alert = new Alert { TimeOfAlert = DateTime.Now, AlertColor = System.Drawing.Color.Red } });
                 _context.SaveChanges();
             }
         }
