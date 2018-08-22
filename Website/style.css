@@ -40,6 +40,7 @@ li.show {
 
 .fade {
   perspective: 500px;
+  width: 25em;
 }
 .fade li {
   transition: all 0.1s ease-out;
@@ -51,6 +52,16 @@ li.show {
   height: auto;
   opacity: 1;
 }
+
+.fade:hover .show {
+  opacity: 0.5;
+}
+
+.fade .show:hover {
+  opacity: 1;
+}
+
+
 .fade li.show:hover {
   transform: scale(1.04);
 }
