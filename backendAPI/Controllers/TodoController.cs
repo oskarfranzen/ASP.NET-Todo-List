@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using TodoApi.Models;
+using TodoApiHelper;
 
 namespace TodoApi.Controllers {
     [Route("api/todo")]
@@ -17,9 +18,16 @@ namespace TodoApi.Controllers {
             }
         }
 
-        [HttpGet]
-        public IEnumerable<TodoItem> GetAll() {
-            return _context.TodoItems.ToList();
+        [HttpGet(Name = "GetAllTodo")]
+        public IEnumerable<TodoItem> GetAll([FromQuery(Name = "searchStr")] string searchStr) {
+            if (String.IsNullOrEmpty(searchStr)) {
+                return _context.TodoItems.ToList();
+            } else {
+                return (from item in _context.TodoItems
+                        where item.Name.Contains(searchStr) || 
+                        LevenshteinCalculator.LevenshteinDistance(searchStr, item.Name, true) < 2
+                        select item);
+            }
         }
 
         [HttpGet("{id}", Name = "GetTodo")]
@@ -39,8 +47,7 @@ namespace TodoApi.Controllers {
             _context.TodoItems.Add(itemToCreate);
             _context.SaveChanges();
 
-            
-            return CreatedAtRoute("GetTodo", new {Id = itemToCreate.Id }, itemToCreate);
+            return CreatedAtRoute("GetTodo", new { Id = itemToCreate.Id }, itemToCreate);
         }
 
         [HttpPut("{id}")]
