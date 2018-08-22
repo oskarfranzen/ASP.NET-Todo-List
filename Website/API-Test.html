@@ -10,23 +10,24 @@
   <link href="./style.css" rel="stylesheet" />
 </head>
 
-<body>
-  <section class="headerSection">
-    <h1>Ett api yo</h1>
-  </section>
+<body style="background-color: #2e2e2e;">
+  <div id="bodyContent">
+    <div class="headerSection">
+      <h1>Ett api yo</h1>
+    </div>
 
-  <form id="addnewItemForm" method="POST">
-    <input id="addTodoItem" type="text" />
-    <input type="submit" />
-  </form>
+    <h3>Add new item</h3>
+    <form id="addnewItemForm" method="POST">
+      <input id="addTodoItem" type="text" />
+      <input type="submit" />
+    </form>
 
-  <div class="fade">
-    <ul id="listOfItems">
-    </ul>
+    <h3>Your Todo's</h3>
+    <div class="fade">
+      <ul id="listOfItems">
+      </ul>
+    </div>
   </div>
-
-
-  <!-- <p id=rawRetrievedData></p> -->
 </body>
 
 </html>
