@@ -76,7 +76,7 @@ function updateDisplay() {
 function createNewTodoItemElement(newObject) {
     var entry = document.createElement('li')
     entry.className = "listItem"
-    var concatProperties = "Name: " + newObject.Name + "</br>Status: " + (newObject.IsDone === true ? "√" : "X")
+    var concatProperties = "<b>Name:</b></br> " + (newObject.Name === "" ? "<i>n/a</i>" : newObject.Name) + "</br><b>Status:</b> " + (newObject.IsDone === true ? "√" : "X")
     entry.innerHTML += "<p>" + concatProperties + "</p>"
     if (Date.parse(newObject.Alert) < (new Date()).getTime()) {
         entry.style.color = newObject.Color
