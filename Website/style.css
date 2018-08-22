@@ -20,6 +20,7 @@ li {
   li.show {
     height: 4em;
     margin: 2px 0;
+    padding: 1px
   }
 
   .fade {
@@ -35,10 +36,17 @@ li {
     height: 4em;
     opacity: 1;
   }
+  .fade li.show:hover {
+    transform: scale(1.04);
+    }
 
 p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12pt;
+}
+
+.fade p {
+  margin-left: 10px;
 }
 
 
