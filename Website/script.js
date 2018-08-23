@@ -62,7 +62,7 @@ function updateDisplay() {
         for (i = 0; i < arrJson.length; i++) {
             var currentObject = arrJson[i];
             var todoObject = new TodoObjectClass(currentObject.id, currentObject.name, currentObject.isDone, currentObject.alert.timeOfAlert, currentObject.alert.alertColor);
-            
+
             if (formattedTodoList != null) {
                 var content = createNewTodoItemElement(todoObject)
                 formattedTodoList.appendChild(content);
@@ -76,14 +76,30 @@ function updateDisplay() {
 function createNewTodoItemElement(newObject) {
     var entry = document.createElement('li')
     entry.className = "listItem"
+    entry.id = newObject.Id
+
+    // var todoData = document.createElement('form');
+    // todoData.innerHTML = "<input class='todoId' type='hidden' name='id' value=" + newObject.id + "/>"
+
     var concatProperties = "<b>Name:</b></br> " + (newObject.Name === "" ? "<i>n/a</i>" : newObject.Name) + "</br><b>Status:</b> " + (newObject.IsDone === true ? "√" : "X")
-    entry.innerHTML += "<p>" + concatProperties + "</p>"
+    var todoText = document.createElement("p")
+    todoText.innerHTML = concatProperties;
+
+    entry.appendChild(todoText);
+
     if (Date.parse(newObject.Alert) < (new Date()).getTime()) {
         entry.style.color = newObject.Color
     }
+
+    entry.onclick = todoItemClicked;
+
     setTimeout(function () {
         entry.className = entry.className + " show"
     }, 100)
 
-    return entry
+    return entry;
+}
+
+function todoItemClicked(event) {
+    alert(event.currentTarget.id)
 }
