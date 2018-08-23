@@ -1,4 +1,4 @@
-var API_URL = "http://localhost:5000/api/todo"
+const API_URL = "http://localhost:5000/api/todo"
 
 class TodoObjectClass {
     constructor(_id, _name, _isDone, _alert, _color) {
@@ -44,7 +44,6 @@ function InitializeEvents() {
         requestObject.send(body)
         nameOfItem.value = ""
     }
-    debugger;
     var searchTodoNameForm = document.querySelector("#searchTodoNameForm");
     searchTodoNameForm.onsubmit = function(e) {
         e.preventDefault()
