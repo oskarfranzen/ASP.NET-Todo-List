@@ -38,12 +38,25 @@ function InitializeEvents() {
 
         requestObject.onload = function () {
             var currentObject = JSON.parse(requestObject.response);
-            debugger;
             var content = createNewTodoItemElement(new TodoObjectClass(currentObject.id, currentObject.name, currentObject.isDone, currentObject.alert.timeOfAlert, currentObject.alert.alertColor));
             document.querySelector("#listOfItems").appendChild(content)
         }
         requestObject.send(body)
         nameOfItem.value = ""
+    }
+    debugger;
+    var searchTodoNameForm = document.querySelector("#searchTodoNameForm");
+    searchTodoNameForm.onsubmit = function(e) {
+        e.preventDefault()
+
+        var requestObject = new XMLHttpRequest();
+        requestObject.open('GET', API_URL + "?searchStr="+document.querySelector("#searchStr").value);
+        requestObject.responseType = "application/json";
+        requestObject.onload= function() {
+            createTodoItems(requestObject.response);
+        }
+        requestObject.send();
+
     }
 }
 
@@ -55,23 +68,26 @@ function updateDisplay() {
 
     requestObject.onload = function () {
         // document.querySelector("#rawRetrievedData").innerHTML += requestObject.response
-
-        var arrJson = JSON.parse(requestObject.response);
-        var formattedTodoList = document.querySelector("#listOfItems")
-        formattedTodoList.innerHTML = ""
-        for (i = 0; i < arrJson.length; i++) {
-            var currentObject = arrJson[i];
-            var todoObject = new TodoObjectClass(currentObject.id, currentObject.name, currentObject.isDone, currentObject.alert.timeOfAlert, currentObject.alert.alertColor);
-
-            if (formattedTodoList != null) {
-                var content = createNewTodoItemElement(todoObject)
-                formattedTodoList.appendChild(content);
-            }
-        }
+        createTodoItems(requestObject.response);
     };
 
     requestObject.send();
 };
+
+function createTodoItems(todoJsonData) {
+    var arrJson = JSON.parse(todoJsonData);
+    var formattedTodoList = document.querySelector("#listOfItems")
+    formattedTodoList.innerHTML = ""
+    for (i = 0; i < arrJson.length; i++) {
+        var currentObject = arrJson[i];
+        var todoObject = new TodoObjectClass(currentObject.id, currentObject.name, currentObject.isDone, currentObject.alert.timeOfAlert, currentObject.alert.alertColor);
+
+        if (formattedTodoList != null) {
+            var content = createNewTodoItemElement(todoObject)
+            formattedTodoList.appendChild(content);
+        }
+    }
+}
 
 function createNewTodoItemElement(newObject) {
     var entry = document.createElement('li')
