@@ -54,13 +54,12 @@ li.show {
 }
 
 .fade:hover .show {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .fade .show:hover {
   opacity: 1;
 }
-
 
 .fade li.show:hover {
   transform: scale(1.04);
