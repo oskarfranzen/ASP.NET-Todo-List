@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <title>Testar .NET Core API</title>
+  <script src=./script.js></script>
+  <link href="./style.css" rel="stylesheet" />
+</head>
+
+<body style="background-color: #2e2e2e;">
+  <div id="bodyContent">
+    <div class="headerSection">
+      <h1>Ett api yo</h1>
+    </div>
+
+    <h3>Add new item</h3>
+    <form id="addnewItemForm" method="POST">
+      <input id="addTodoItem" type="text" />
+      <input type="submit" />
+    </form>
+
+    <div>
+      <h3>Your Todo's</h3>
+      <form id="searchTodoNameForm" method="POST">
+        <input id="searchStr" type="text" />
+        <input type="submit"/>
+      </form>
+      <div class="fade">
+        <ul id="listOfItems">
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

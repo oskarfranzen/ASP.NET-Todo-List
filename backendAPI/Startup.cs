@@ -12,6 +12,8 @@ namespace TodoApi {
 
         public void Configure(IApplicationBuilder app) {
             app.UseMvc();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
         }
     }
 }
