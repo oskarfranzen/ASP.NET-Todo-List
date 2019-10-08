@@ -4,13 +4,15 @@ using System.Drawing;
 namespace TodoApiHelper {
     public class LevenshteinCalculator {
         public static int LevenshteinDistance(string baseStr, string compareStr, bool ignoreCase) {
+            if (baseStr.Length == 0 || compareStr.Length == 0) {
+                return 0;
+            }
+
             if (ignoreCase) {
                 baseStr = baseStr.ToLower();
                 compareStr = compareStr.ToLower();
             }
-            if (baseStr.Length == 0 || compareStr.Length == 0) {
-                return 0;
-            }
+
 
             var compareMatrix = new int[baseStr.Length + 1, compareStr.Length + 1];
             for (var i = 0; i <= baseStr.Length; compareMatrix[i, 0] = i++) { }
